@@ -6,47 +6,26 @@
 <script>
 $(function(){
 
-var amount = 0;
+var cookies = 0;
 
-function setCookie(cname,cvalue,exdays) {
-    var d = new Date();
-    d.setTime(d.getTime() + (exdays*24*60*60*1000));
-    var expires = "expires=" + d.toGMTString();
-    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+localStorage.setItem("save",JSON.stringify(save));
+
+var save = {
+    cookies: cookies,
+    cursors: cursors,
+    prestige: prestige
 }
 
-function getCookie(cname) {
-    var name = cname + "=";
-    var decodedCookie = decodeURIComponent(document.cookie);
-    var ca = decodedCookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-
-function save() {
-   	setCookie("amountCookie", amount, 30);
-	amount = amountCookie;
-}
-
-$('#save').click(function(){
-	save()
-})
+var savegame = JSON.parse(localStorage.getItem("save"));
+if (typeof savegame.cookies !== "undefined") cookies = savegame.cookies;
 
 $('#add').click(function(){
-	amount = amount + 1;
-	console.log(amount)
+	cookies = cookies + 1;
+	console.log(cookies)
 })
 
 function writeAmount() {
-	$('#amountE').text(amount)
+	$('#amountE').text(cookies)
 }
 
 window.setInterval(function(){
@@ -67,6 +46,6 @@ window.setInterval(function(){
 
 <button id="save">Save</button>
 
-<p>V 2.2</p>
+<p>V 0.01</p>
 </body>
 </html>
