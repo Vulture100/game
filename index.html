@@ -37,6 +37,9 @@ function save() {
         if (amountCookie != "" && amountCookie != null) {
            setCookie("amountCookie", amount, 30);
        	}
+       	else {
+       		amount = amountCookie;
+       	}
     }
 }
 
