@@ -34,7 +34,7 @@ function getCookie(cname) {
 function save() {
     var amount=getCookie("amountCookie");
     if (amountCookie == "") {
-        if (user != "" && user != null) {
+        if (amountCookie != "" && amountCookie != null) {
            setCookie("amountCookie", amount, 30);
        	}
     }
