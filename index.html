@@ -32,15 +32,8 @@ function getCookie(cname) {
 }
 
 function save() {
-    var amount=getCookie("amountCookie");
-    if (amountCookie == "") {
-        if (amountCookie != "" && amountCookie != null) {
-           setCookie("amountCookie", amount, 30);
-       	}
-       	else {
-       		amount = amountCookie;
-       	}
-    }
+   	setCookie("amountCookie", amount, 30);
+	amount = amountCookie;
 }
 
 $('#save').click(function(){
@@ -74,6 +67,6 @@ window.setInterval(function(){
 
 <button id="save">Save</button>
 
-<p>V 2.1</p>
+<p>V 2.2</p>
 </body>
 </html>
